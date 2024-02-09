@@ -1,4 +1,4 @@
-package calculator
+package main
 
 // Add adds x and y
 func Add(x, y int) int {
