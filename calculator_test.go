@@ -23,7 +23,7 @@ func TestMultiply(t *testing.T) {
 		t.Errorf("Multiply method produced wrong result. expected: %d, got: %d", want, got)
 	}
 
-	if got, want := Multiply(-3, -2), -6; got != want {
+	if got, want := Multiply(-3, -2), 6; got != want {
 		t.Errorf("Multiply method produced wrong result. expected: %d, got: %d", want, got)
 	}
 }
