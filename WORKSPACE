@@ -1,6 +1,6 @@
 workspace(name = "testing-codecov")
 
-load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
+load("@platforms//tools/build_defs/repo:http.bzl", "http_archive")
 
 http_archive(
     name = "io_buildbuddy_buildbuddy_toolchain",
@@ -17,7 +17,7 @@ load("@io_buildbuddy_buildbuddy_toolchain//:rules.bzl", "buildbuddy")
 
 buildbuddy(name = "buildbuddy_toolchain")
 
-load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
+load("@platforms//tools/build_defs/repo:http.bzl", "http_archive")
 
 http_archive(
     name = "io_bazel_rules_go",
