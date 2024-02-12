@@ -15,19 +15,6 @@ gazelle(
 )
 
 go_library(
-    name = "project",
-    srcs = ["calculator.go"],
-    importpath = "github.com/example/project",
-    visibility = ["//visibility:public"],
-)
-
-go_test(
-    name = "project_test",
-    srcs = ["calculator_test.go"],
-    embed = [":project"],
-)
-
-go_library(
     name = "testing-codecov",
     srcs = ["calculator.go"],
     importpath = "github.com/JohnAmican/testing-codecov",
