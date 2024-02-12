@@ -1,7 +1,7 @@
 load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
 load("@bazel_gazelle//:def.bzl", "gazelle")
 
-# gazelle:prefix github.com/example/project
+# gazelle:prefix github.com/JohnAmican/testing-codecov
 gazelle(name = "gazelle")
 
 gazelle(
@@ -25,4 +25,17 @@ go_test(
     name = "project_test",
     srcs = ["calculator_test.go"],
     embed = [":project"],
+)
+
+go_library(
+    name = "testing-codecov",
+    srcs = ["calculator.go"],
+    importpath = "github.com/JohnAmican/testing-codecov",
+    visibility = ["//visibility:public"],
+)
+
+go_test(
+    name = "testing-codecov_test",
+    srcs = ["calculator_test.go"],
+    embed = [":testing-codecov"],
 )
