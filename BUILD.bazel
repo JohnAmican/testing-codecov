@@ -1,0 +1,28 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
+load("@bazel_gazelle//:def.bzl", "gazelle")
+
+# gazelle:prefix github.com/example/project
+gazelle(name = "gazelle")
+
+gazelle(
+    name = "gazelle-update-repos",
+    args = [
+        "-from_file=go.mod",
+        "-to_macro=deps.bzl%go_dependencies",
+        "-prune",
+    ],
+    command = "update-repos",
+)
+
+go_library(
+    name = "project",
+    srcs = ["calculator.go"],
+    importpath = "github.com/example/project",
+    visibility = ["//visibility:public"],
+)
+
+go_test(
+    name = "project_test",
+    srcs = ["calculator_test.go"],
+    embed = [":project"],
+)
