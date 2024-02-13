@@ -2,9 +2,9 @@
 set -euo pipefail
 # Change to the WORKSPACE directory
 cd "$BUILD_WORKSPACE_DIRECTORY"
+curl https://keybase.io/codecovsecurity/pgp_keys.asc | gpg --no-default-keyring --keyring trustedkeys.gpg --import # One-time step
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
-    curl https://keybase.io/codecovsecurity/pgp_keys.asc | gpg --no-default-keyring --keyring trustedkeys.gpg --import # One-time step
     # download Codecov CLI
     curl -Os https://cli.codecov.io/latest/macos/codecov
 
@@ -14,8 +14,6 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     curl -Os https://cli.codecov.io/latest/macos/codecov.SHA256SUM.sig
     gpgv codecov.SHA256SUM.sig codecov.SHA256SUM
 else
-    apt-get install gpg
-    curl https://keybase.io/codecovsecurity/pgp_keys.asc | gpg --no-default-keyring --keyring trustedkeys.gpg --import # One-time step
     # download Codecov CLI
     curl -Os https://cli.codecov.io/latest/linux/codecov
 
