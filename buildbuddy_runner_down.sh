@@ -2,6 +2,7 @@
 set -euo pipefail
 # Change to the WORKSPACE directory
 cd "$BUILD_WORKSPACE_DIRECTORY"
+gpg --version
 curl https://keybase.io/codecovsecurity/pgp_keys.asc | gpg --no-default-keyring --keyring trustedkeys.gpg --import # One-time step
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
