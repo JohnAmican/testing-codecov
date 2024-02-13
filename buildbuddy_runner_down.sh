@@ -14,6 +14,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     curl -Os https://cli.codecov.io/latest/macos/codecov.SHA256SUM.sig
     gpgv codecov.SHA256SUM.sig codecov.SHA256SUM
 else
+    apt install gpg-agent
     # download Codecov CLI
     curl -Os https://cli.codecov.io/latest/linux/codecov
 
