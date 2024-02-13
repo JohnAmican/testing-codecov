@@ -9,3 +9,4 @@ actions:
           - "*"
     bazel_commands:
       - "test //... --config=workflows"
+      - "run //:buildbuddy_runner_down --config=workflows"
