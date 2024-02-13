@@ -9,3 +9,8 @@ func Add(x, y int) int {
 func Subtract(x, y int) int {
 	return x - y
 }
+
+// Multiply subtracts y from x
+func Multiply(x, y int) int {
+	return x * y
+}
