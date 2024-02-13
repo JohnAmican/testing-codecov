@@ -13,7 +13,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     curl -Os https://cli.codecov.io/latest/macos/codecov.SHA256SUM
     curl -Os https://cli.codecov.io/latest/macos/codecov.SHA256SUM.sig
 else
-    apt-get install gnupg
+    apt-get update && apt-get install gnupg
     curl https://keybase.io/codecovsecurity/pgp_keys.asc | gpg --no-default-keyring --keyring trustedkeys.gpg --import # One-time step
     # download Codecov CLI
     curl -Os https://cli.codecov.io/latest/linux/codecov
