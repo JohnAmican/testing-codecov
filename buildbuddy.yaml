@@ -1,5 +1,6 @@
 actions:
   - name: "Test all targets"
+    container_image: "ubuntu-20.04"
     triggers:
       push:
         branches:
@@ -8,5 +9,5 @@ actions:
         branches:
           - "*"
     bazel_commands:
-      - "test //... --config=workflows"
+      - "coverage //... --config=workflows"
       - "run //:buildbuddy_runner_down --config=workflows"
