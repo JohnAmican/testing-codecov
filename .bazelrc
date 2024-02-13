@@ -35,6 +35,8 @@ common --incompatible_enable_cc_toolchain_resolution
 common:remote --config=remote-shared
 common:remote --config=cache
 common:remote --remote_executor=grpcs://paxos.buildbuddy.io
+common:remote --experimental_split_coverage_postprocessing
+common:remote --experimental_fetch_all_coverage_outputs
 
 common:remote-target-linux --config=remote
 common:remote-target-linux --cpu=k8
