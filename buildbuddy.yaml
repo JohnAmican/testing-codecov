@@ -8,5 +8,5 @@ actions:
         branches:
           - "*"
     bazel_commands:
-      - "test //... --config=workflows"
+      - "coverage //... --config=workflows"
       - "run //:buildbuddy_runner_down --config=workflows"
