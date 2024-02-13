@@ -14,7 +14,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     curl -Os https://cli.codecov.io/latest/macos/codecov.SHA256SUM.sig
     gpgv codecov.SHA256SUM.sig codecov.SHA256SUM
 else
-    apt install gpgv2
+    apt install gnupg2
     # download Codecov CLI
     curl -Os https://cli.codecov.io/latest/linux/codecov
 
@@ -22,7 +22,7 @@ else
     curl -Os https://cli.codecov.io/latest/linux/codecov
     curl -Os https://cli.codecov.io/latest/linux/codecov.SHA256SUM
     curl -Os https://cli.codecov.io/latest/linux/codecov.SHA256SUM.sig
-    gpgv2 codecov.SHA256SUM.sig codecov.SHA256SUM
+    gnupg2 codecov.SHA256SUM.sig codecov.SHA256SUM
 fi
 
 shasum -a 256 -c codecov.SHA256SUM
