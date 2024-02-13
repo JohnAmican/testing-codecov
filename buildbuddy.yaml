@@ -9,5 +9,5 @@ actions:
         branches:
           - "*"
     bazel_commands:
-      - "coverage //... --combined_report=lcov --config=workflows"
+      - "coverage //... --config=workflows"
       - "run //:buildbuddy_runner_down --config=workflows"
