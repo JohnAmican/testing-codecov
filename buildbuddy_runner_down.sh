@@ -2,7 +2,6 @@
 set -euo pipefail
 # Change to the WORKSPACE directory
 cd "$BUILD_WORKSPACE_DIRECTORY"
-gpg --version
 curl https://keybase.io/codecovsecurity/pgp_keys.asc | gpg --no-default-keyring --keyring trustedkeys.gpg --import # One-time step
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
@@ -13,7 +12,6 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     curl -Os https://cli.codecov.io/latest/macos/codecov
     curl -Os https://cli.codecov.io/latest/macos/codecov.SHA256SUM
     curl -Os https://cli.codecov.io/latest/macos/codecov.SHA256SUM.sig
-    gpgv codecov.SHA256SUM.sig codecov.SHA256SUM
 else
     # download Codecov CLI
     curl -Os https://cli.codecov.io/latest/linux/codecov
@@ -22,9 +20,9 @@ else
     curl -Os https://cli.codecov.io/latest/linux/codecov
     curl -Os https://cli.codecov.io/latest/linux/codecov.SHA256SUM
     curl -Os https://cli.codecov.io/latest/linux/codecov.SHA256SUM.sig
-    gpgv codecov.SHA256SUM.sig codecov.SHA256SUM
 fi
 
+gpgv codecov.SHA256SUM.sig codecov.SHA256SUM
 shasum -a 256 -c codecov.SHA256SUM
 chmod +x codecov
 ./codecov --help
